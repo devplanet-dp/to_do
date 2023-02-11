@@ -1,4 +1,7 @@
 import 'package:get/get.dart';
+import 'package:to_do/feature/home/home_binding.dart';
+import 'package:to_do/feature/home/home_page.dart';
+import 'package:to_do/feature/signin/name_page.dart';
 import 'package:to_do/feature/signin/signin_binding.dart';
 import 'package:to_do/feature/signin/signin_page.dart';
 
@@ -21,6 +24,16 @@ class AppPages {
       name: AppRoutes.signIn,
       page: () => const SignInPage(),
       binding: SignInBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.name,
+      page: () => const NamePage(),
+      binding: SignInBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.home,
+      page: () => const HomePage(),
+      binding: HomeBinding(),
     ),
   ];
 }

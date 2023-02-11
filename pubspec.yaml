@@ -16,6 +16,7 @@ dependencies:
   firebase_auth:
   cloud_firestore:
   firebase_ui_firestore:
+  firebase_ui_auth:
 
   #ui
   shimmer:

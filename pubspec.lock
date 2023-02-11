@@ -113,6 +113,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.5"
+  desktop_webview_auth:
+    dependency: transitive
+    description:
+      name: desktop_webview_auth
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.11"
+  email_validator:
+    dependency: transitive
+    description:
+      name: email_validator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.17"
   fake_async:
     dependency: transitive
     description:
@@ -176,6 +190,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
+  firebase_dynamic_links:
+    dependency: transitive
+    description:
+      name: firebase_dynamic_links
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.12"
+  firebase_dynamic_links_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_dynamic_links_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.3+27"
+  firebase_ui_auth:
+    dependency: "direct main"
+    description:
+      name: firebase_ui_auth
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.10"
   firebase_ui_firestore:
     dependency: "direct main"
     description:
@@ -190,6 +225,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.1"
+  firebase_ui_oauth:
+    dependency: transitive
+    description:
+      name: firebase_ui_oauth
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.10"
   flutter:
     dependency: "direct main"
     description: flutter

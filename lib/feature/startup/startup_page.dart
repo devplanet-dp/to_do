@@ -23,6 +23,7 @@ class _StartUpViewState extends State<StartUpPage>
 
     _controller.forward();
 
+
     super.initState();
   }
 

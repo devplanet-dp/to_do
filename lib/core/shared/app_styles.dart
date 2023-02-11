@@ -9,6 +9,7 @@ class AppStyles {
 
 // Field Variables
   static const double fieldHeight = 55;
+  static const double kHorizontalPadding = 24;
   static const double smallFieldHeight = 40;
   static const double inputFieldBottomMargin = 30;
   static const double inputFieldSmallBottomMargin = 0;

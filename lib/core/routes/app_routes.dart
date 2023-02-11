@@ -5,6 +5,7 @@ class AppRoutes{
 
   //contains all the routes of the app
   static const startup = '/startup';
+  static const name = '/name';
   static const home = '/home';
   static const signIn = '/signIn';
   static const signUp = '/signUp';

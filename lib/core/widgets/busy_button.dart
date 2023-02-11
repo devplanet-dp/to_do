@@ -32,6 +32,7 @@ class BoxButtonWidget extends StatelessWidget {
       disabledColor: buttonColor ?? AppColors.kcPrimaryColor,
       height: 45,
       elevation: 0,
+
       color:
           isEnabled ? buttonColor ?? AppColors.kcPrimaryColor : Colors.black12,
       shape: const RoundedRectangleBorder(

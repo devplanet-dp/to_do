@@ -5,7 +5,7 @@ class AppColors{
 
   AppColors._();
 
-  static const Color kcPrimaryColor = Color(0xfffe0000);
+  static const Color kcPrimaryColor = Color(0xff300044);
   static const Color kcAccent = Color(0xFFCFC96B);
   static const Color kcTextPrimary = Color(0xFF010302);
   static const Color kcTextSecondary = Color(0xFF5F5F5F);

@@ -54,7 +54,7 @@ class AppTextField extends StatelessWidget {
     this.isNumber = false,
     this.isCapitalize = false,
     this.textColor = AppColors.kcTextPrimary,
-    this.isFilled = true,
+    this.isFilled = false,
     this.suffix,
     this.prefixWidget,
     this.prefixIcon,
@@ -148,30 +148,13 @@ class AppTextField extends StatelessWidget {
                 fontSize: 15,
                 color: isDark ? Colors.white.withOpacity(0.9) : Colors.black),
             filled: isFilled,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
-              borderSide: BorderSide(color: borderColor, width: 1),
+            enabledBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: AppColors.kcStroke),
             ),
-            errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
-              borderSide: const BorderSide(color: Colors.red, width: 1),
+            focusedBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: AppColors.kcPrimaryColor),
             ),
-            focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
-              borderSide: BorderSide(color: borderColor, width: 1),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
-              borderSide:  const BorderSide(color: AppColors.kcFocusBorder, width: 1),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
-              borderSide: BorderSide(color: borderColor, width: 1),
-            ),
-            disabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
-              borderSide: BorderSide(color: borderColor, width: 1),
-            ),
+
           ),
         ),
       ],

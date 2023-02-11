@@ -4,12 +4,12 @@ class AppLocale extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         "en_US": {
-          'text001':'By signing up for Tone me, you agree your terms & conditions.Learn how we process your data in our privacy and cookies policy',
-          'text002':'Welcome to The Best Dating App',
-          'text003':'Sign up',
-          'text004':'Enter Mobile Number',
+          'text001':'Unknown error occurred.Please try again',
+          'text002':'John Doe',
+          'text003':'Please enter your name',
+          'text004':'Next',
           'text004.error':'*Wrong mobile number Entered. ',
-          'text005':'Continue',
+          'text005':'What’s Your Full Name?',
           'text006':'Already an existing user? ',
           'text007':'Login',
           'text008':'Enter OTP',
