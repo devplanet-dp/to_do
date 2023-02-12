@@ -82,7 +82,7 @@ class TaskPage extends GetView<TaskController> {
                   AppStyles.vSpaceMedium,
                   AppTextField(
                       controller: controller.titleTEC,
-                      hintText: 'Make something awesome',
+                      hintText: 'text026'.tr,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'text007'.tr;
@@ -93,7 +93,7 @@ class TaskPage extends GetView<TaskController> {
                   AppStyles.vSpaceMedium,
                   AppTextField(
                       controller: controller.descriptionTEC,
-                      hintText: 'Add product categories',
+                      hintText: 'text027'.tr,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'text011'.tr;

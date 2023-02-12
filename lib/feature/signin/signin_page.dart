@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:to_do/core/routes/app_routes.dart';
 import 'package:to_do/core/shared/app_styles.dart';
-import 'package:to_do/feature/signin/signin_binding.dart';
+import 'package:to_do/feature/signin/signin_controller.dart';
 
-class SignInPage extends GetView<SignInBinding> {
+class SignInPage extends GetView<SignInController> {
   const SignInPage({Key? key}) : super(key: key);
 
   @override
@@ -35,7 +35,7 @@ class SignInPage extends GetView<SignInBinding> {
         }),
         //on user sign up
         AuthStateChangeAction<SignedIn>((context, state) {
-          Get.offAllNamed(AppRoutes.home);
+         controller.goToHome();
         })
       ],
       providers: [EmailAuthProvider()],

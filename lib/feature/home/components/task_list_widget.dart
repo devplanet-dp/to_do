@@ -21,8 +21,8 @@ class TaskListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return tasks.isEmpty
-        ? const AppInfoWidget(
-                translateKey: 'No any tasks found!', iconData: Icons.add_task)
+        ?  AppInfoWidget(
+                translateKey: 'text025'.tr, iconData: Icons.add_task)
             .center()
         : ListView.separated(
             itemCount: tasks.length,

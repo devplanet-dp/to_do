@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '../shared/app_styles.dart';
@@ -13,17 +14,17 @@ class ProfileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 48,
-      width: 48,
+      height: 32,
+      width: 32,
       decoration: BoxDecoration(
           color: Colors.red.withOpacity(.5),
           borderRadius: const BorderRadius.all(Radius.circular(8))),
       child: _buildLetter(context).center(),
-    );
+    ).paddingAll(8);
   }
 
   Widget _buildLetter(BuildContext context) => Text(
         name[0].toUpperCase(),
-        style: AppStyles.kHeadlineStyle.copyWith(color: Colors.white),
+        style: AppStyles.kBodyStyle.copyWith(color: Colors.white),
       );
 }

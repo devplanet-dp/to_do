@@ -43,6 +43,7 @@ class NotificationController extends GetxController {
       required String title,
       required String description,
       required DateTime date}) async {
+    ///create scheduled alert for tasks. Scheduled is added to task's start date with time
     await AwesomeNotifications().createNotification(
         content: NotificationContent(
             id: vid,

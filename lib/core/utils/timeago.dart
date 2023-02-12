@@ -64,7 +64,9 @@ extension DateTimeExtension on TimeOfDay {
 
 extension TimestamExtensions on Timestamp {
   int toAlertId() {
-    //create id for scheduled alerts (it must be 32-bit)
+    ///
+    ///create [id] for scheduled alerts (it must be 32-bit)
+    ///
     final d = toDate();
     return int.parse(
         '${d.month}${d.day}${d.hour}${d.minute}');

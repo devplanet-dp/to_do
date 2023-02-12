@@ -1,26 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:to_do/core/routes/app_routes.dart';
 
 import '../model/user_model.dart';
 import 'firestore_controller.dart';
-import 'local_storage_controller.dart';
 
 class AuthenticationController extends GetxController {
   static const String isLogged = 'is_logged';
-  static const String token = 'token';
 
-  final localStorage = Get.find<LocalStorageController>();
   final _firebaseAuth = FirebaseAuth.instance;
   final _fireService = Get.find<FirestoreController>();
 
   UserModel? _currentUser;
 
   UserModel? get currentUser => _currentUser;
-
-  bool isUserLogged() => localStorage.isUserLogged;
-
-  Future saveUserToken(String token) async {}
 
   String currentUserId() => _firebaseAuth.currentUser?.uid ?? '';
 
@@ -32,8 +26,6 @@ class AuthenticationController extends GetxController {
       return FirebaseResult.error(errorMessage: e.toString());
     }
   }
-
-
 
   Future<FirebaseResult> populateCurrentUser() async {
     var result =
@@ -69,14 +61,8 @@ class AuthenticationController extends GetxController {
   }
 
   Future signOut() async {
-    localStorage.userToken = '';
     await _firebaseAuth.signOut();
-  }
-
-  Future deleteUserProfile() async {
-    await _fireService.deleteCurrentUser(currentUser?.userId ?? '');
-    await _firebaseAuth.currentUser?.delete();
-    // Get.offAll(() => const SignInView());
+    Get.offAllNamed(AppRoutes.signIn);
   }
 }
 

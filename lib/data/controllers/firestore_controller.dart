@@ -159,8 +159,4 @@ class FirestoreController extends GetxController {
         snapshot.docs.map((doc) => TaskModel.fromSnapshot(doc)).toList());
   }
 
-  Query tasksQuery(String uid) => _usersCollectionReference
-      .doc(uid)
-      .collection(tbTask)
-      .orderBy('created_at');
 }

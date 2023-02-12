@@ -3,7 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
 import 'app_styles.dart';
-
+///  class for app theme.
+///
+///
 class AppTheme{
   static final AppTheme _singleton = AppTheme._internal();
   factory AppTheme() => _singleton;

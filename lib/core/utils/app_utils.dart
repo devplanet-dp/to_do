@@ -38,6 +38,7 @@ class AppUtils {
   }
 
   static showInfoMessage({required message, title = 'Info!'}) {
+
     Get.snackbar(title, message,
         backgroundColor: AppColors.kcPrimaryColor,
         colorText: AppColors.kAltWhite,
@@ -66,7 +67,9 @@ class AppUtils {
   }
 
 }
-
+/// extensions for task filter
+///
+///
 extension FilterTasksExtenion on List<TaskModel> {
   List<TaskModel> filterTasksByStatus(TaskStatus status) {
     return where((r) => r.status == status).toList();

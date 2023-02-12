@@ -29,11 +29,16 @@ class HomePage extends GetView<HomeController> {
       backgroundColor: AppColors.kAltWhite,
       body: CustomScrollView(
         slivers: [
-          CustomSliverAppBar(title: 'Hello! ${controller.getUserName()}'),
+          CustomSliverAppBar(
+            title: 'Hello! ${controller.getUserName()}',
+            username: controller.getUserName(),
+
+            onProfileTap: () => controller.signOut(),
+          ),
           SliverList(
               delegate: SliverChildListDelegate([
             AppStyles.vSpaceMedium,
-                OptionsGridWidget(tasks: controller.allTasks),
+            OptionsGridWidget(tasks: controller.allTasks),
             AppStyles.vSpaceMassive,
           ]))
         ],

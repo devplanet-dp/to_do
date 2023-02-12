@@ -22,6 +22,12 @@ class SignInController extends BaseController {
       AppUtils.showErrorMessage(message: result.errorMessage);
     }
   }
+  Future goToHome()async{
+    setBusy(true);
+    await authController.populateCurrentUser();
+    Get.offAllNamed(AppRoutes.home);
+    setBusy(false);
+  }
 
   @override
   void dispose() {

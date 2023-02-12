@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:to_do/core/routes/app_routes.dart';
 import 'package:to_do/core/utils/app_utils.dart';
@@ -48,12 +49,12 @@ class HomeController extends BaseController {
   Future markCompletedTask(TaskModel task) async {
     setBusy(true);
     final result = await _fireController.markTaskAsCompleted(
-        taskId: task.id??'', uid: _authController.currentUser?.userId ?? '');
+        taskId: task.id ?? '', uid: _authController.currentUser?.userId ?? '');
     if (!result.hasError) {
-      await _notificationController.cancelScheduledAlert(task.createdAt?.toAlertId()??0);
+      await _notificationController
+          .cancelScheduledAlert(task.createdAt?.toAlertId() ?? 0);
       AppUtils.showInfoMessage(message: 'Task marked as completed');
     } else {
-
       AppUtils.showErrorMessage(message: result.errorMessage);
     }
     setBusy(false);
@@ -77,6 +78,15 @@ class HomeController extends BaseController {
         break;
     }
     return tasks;
+  }
+
+  Future signOut() async {
+    //show confirmation dialog before signoutes
+    Get.defaultDialog(
+        title: 'text023'.tr,
+        onCancel: () => Get.back(),
+        content: Text('text024'.tr),
+        onConfirm: () => _authController.signOut());
   }
 
   @override
