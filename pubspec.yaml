@@ -27,9 +27,13 @@ dependencies:
   google_fonts:
   cached_network_image:
   flutter_svg:
+  auto_size_text_pk:
   #utils
   shared_preferences:
   logger:
+  date_picker_timeline:
+  uuid:
+  intl:
 
   #statemanagement
   get:

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 String timeAgoSinceDate(DateTime dateString, {bool numericDates = true}) {
@@ -47,16 +48,18 @@ String dateDifference(DateTime start, DateTime end) {
 
 extension DateOnlyCompare on DateTime {
   bool isSameDate(DateTime other) {
-    return this.year == other.year &&
-        this.month == other.month &&
-        this.day == other.day;
+    return year == other.year &&
+        month == other.month &&
+        day == other.day;
+  }
+  String toTime(){
+    return DateFormat().add_Hm().format(this);
   }
 }
 
-String formatTodayTime(DateTime time) {
-  if (time == null) return "";
-  final dateFormat = DateFormat.yMMMMd('en_US');
-  final dateTime = dateFormat.format(time);
-
-  return (time != null) ? dateTime.toString() : "";
+extension DateTimeExtension on TimeOfDay {
+  DateTime toDate() {
+    final now = DateTime.now();
+    return DateTime(now.year,now.month, now.day, hour, minute);
+  }
 }

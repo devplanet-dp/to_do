@@ -27,14 +27,14 @@ class AppInfoWidget extends StatelessWidget {
       children: [
         CircleAvatar(
           backgroundColor: !isDark
-              ? AppColors.kcAccent.withOpacity(.4)
+              ? AppColors.kcAccent
               : AppColors.kcTextSecondary.withOpacity(0.8),
           radius: 32,
           child: icon ??
               Icon(
                 iconData,
                 size: 24,
-                color: AppColors.kcTextSecondary,
+                color: AppColors.kcPrimaryColor,
               ),
         ),
         AppStyles.vSpaceSmall,

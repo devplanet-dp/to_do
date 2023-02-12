@@ -24,14 +24,12 @@ class RichTextWidget extends StatelessWidget {
     return RichText(
       text: TextSpan(
           text: firstTxt.tr,
-          style: AppStyles.kBodyStyle.copyWith(color: AppColors.kcTextPrimary),
+          style: AppStyles.kBodyStyle.copyWith(color: AppColors.kcStroke),
           children: <TextSpan>[
             TextSpan(
                 text: ' ${secondTxt.tr}',
                 style: AppStyles.kBodyStyle.copyWith(
-                    color: isLight
-                        ? AppColors.kAltBgDark
-                        : AppColors.kcPrimaryColor),
+                    color: AppColors.kcStroke,fontWeight: FontWeight.bold),
                 recognizer: TapGestureRecognizer()..onTap = onTap)
           ]),
     );

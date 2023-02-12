@@ -17,7 +17,7 @@ class SignInController extends BaseController {
         await authController.createNewUserForEmail(nameTEC.text.trim());
     setBusy(false);
     if (!result.hasError) {
-      Get.toNamed(AppRoutes.home);
+      Get.offAllNamed(AppRoutes.home);
     } else {
       AppUtils.showErrorMessage(message: result.errorMessage);
     }

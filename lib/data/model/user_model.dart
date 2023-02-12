@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:to_do/core/utils/app_logger.dart';
 
 
 enum Gender { male, female, x }
@@ -20,13 +21,18 @@ class UserModel {
       this.isActive = true});
 
   UserModel.fromMap(Map<String, dynamic>? json) {
-    name = json!['name'];
-    email = json['email'];
-    profileUrl = json['profileUrl'];
-    userId = json['userId'];
-    isActive = json['isActive'];
+    try{
+      name = json!['name'];
+      email = json['email'];
+      profileUrl = json['profileUrl'];
+      userId = json['userId'];
+      isActive = json['isActive'];
 
-    createdDate = json['createdDate'];
+      createdDate = json['createdDate'];
+    }catch(e){
+      AppLogger().error(e);
+    }
+
   }
 
   Map<String, dynamic> toJson() {

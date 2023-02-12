@@ -23,7 +23,7 @@ class NamePage extends GetView<SignInController> {
         AppTextField(
           controller: controller.nameTEC,
           hintText: 'text002'.tr,
-          label: '',
+          label: 'text013'.tr,
           onChanged: (value) {
             controller.name.value = value;
           },

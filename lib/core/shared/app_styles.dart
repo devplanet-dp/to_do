@@ -13,7 +13,7 @@ class AppStyles {
   static const double smallFieldHeight = 40;
   static const double inputFieldBottomMargin = 30;
   static const double inputFieldSmallBottomMargin = 0;
-  static const EdgeInsets fieldPadding = EdgeInsets.symmetric(horizontal: 15);
+  static const EdgeInsets fieldPadding = EdgeInsets.symmetric(horizontal: 28);
   static const EdgeInsets fieldPaddingAll = EdgeInsets.all(10.0);
  static const EdgeInsets kLargeFieldPadding =
        EdgeInsets.symmetric(horizontal: 48, vertical: 24);

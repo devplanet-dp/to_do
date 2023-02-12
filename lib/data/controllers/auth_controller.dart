@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import '../../core/base/base_controller.dart';
+
 import '../model/user_model.dart';
 import 'firestore_controller.dart';
 import 'local_storage_controller.dart';
@@ -11,9 +11,8 @@ class AuthenticationController extends GetxController {
   static const String token = 'token';
 
   final localStorage = Get.find<LocalStorageController>();
-  final  _firebaseAuth = FirebaseAuth.instance;
-  final  _fireService = Get.find<FirestoreController>();
-  final baseController = Get.find<BaseController>();
+  final _firebaseAuth = FirebaseAuth.instance;
+  final _fireService = Get.find<FirestoreController>();
 
   UserModel? _currentUser;
 
@@ -23,36 +22,39 @@ class AuthenticationController extends GetxController {
 
   Future saveUserToken(String token) async {}
 
-
+  String currentUserId() => _firebaseAuth.currentUser?.uid ?? '';
 
   Future<FirebaseResult> isUserLoggedIn() async {
     try {
       var user = _firebaseAuth.currentUser;
-      return FirebaseResult(data: user!=null);
+      return FirebaseResult(data: user);
     } catch (e) {
       return FirebaseResult.error(errorMessage: e.toString());
     }
   }
 
-  Future<FirebaseResult> populateCurrentUser(String uid) async {
-    var result = await _fireService.getUser(uid);
+
+
+  Future<FirebaseResult> populateCurrentUser() async {
+    var result =
+        await _fireService.getUser(_firebaseAuth.currentUser?.uid ?? '');
+
     if (!result.hasError) {
       _currentUser = result.data;
-      baseController.appUser = _currentUser;
       return FirebaseResult(data: result);
     } else {
       return FirebaseResult(data: null);
     }
   }
 
-
   Future<FirebaseResult> createNewUserForEmail(String name) async {
     //create-user in firestore after sign up with firebase
     final firebaseUser = _firebaseAuth.currentUser;
+
     final user = UserModel(
         name: name,
-        email: firebaseUser?.email??'',
-        userId: firebaseUser?.uid??'',
+        email: firebaseUser?.email ?? '',
+        userId: firebaseUser?.uid ?? '',
         createdDate: Timestamp.now());
 
     var result = await _fireService.createUser(user);
@@ -60,7 +62,6 @@ class AuthenticationController extends GetxController {
     if (result is bool) {
       _currentUser = user;
       //assign user to base controller user variable to use across the app
-      baseController.appUser = _currentUser;
       return FirebaseResult(data: true);
     } else {
       return FirebaseResult.error(errorMessage: 'text001'.tr);
@@ -69,13 +70,11 @@ class AuthenticationController extends GetxController {
 
   Future signOut() async {
     localStorage.userToken = '';
-    baseController.appUser = null;
     await _firebaseAuth.signOut();
   }
 
   Future deleteUserProfile() async {
-    await _fireService.deleteCurrentUser(baseController.appUser?.userId ?? '');
-    baseController.appUser = null;
+    await _fireService.deleteCurrentUser(currentUser?.userId ?? '');
     await _firebaseAuth.currentUser?.delete();
     // Get.offAll(() => const SignInView());
   }

@@ -11,8 +11,16 @@ class AppTheme{
 
   final ThemeData themeData = ThemeData(
     textTheme: GoogleFonts.poppinsTextTheme(),
+    useMaterial3: true,
     brightness: Brightness.light,
     backgroundColor: Colors.white,
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: Colors.white
+    ),
+    listTileTheme: const ListTileThemeData(
+      contentPadding: EdgeInsets.zero,
+      minLeadingWidth: 4,
+    ),
     dividerColor: Colors.transparent,
     dialogTheme: const DialogTheme(
     ),
@@ -20,18 +28,31 @@ class AppTheme{
       selectedColor: AppColors.kcPrimaryColor,
       backgroundColor: AppColors.kAltWhite,
     ),
-
+    focusColor: AppColors.kcPrimaryColor,
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: ButtonStyle(
+        shape: MaterialStateProperty.all(const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(6))
+        )),
+        padding: MaterialStateProperty.all<EdgeInsets>(
+          const EdgeInsets.all(16),
+        ),
+        backgroundColor: MaterialStateProperty.all<Color>(AppColors.kcPrimaryColor),
+        foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+      ),
+    ),
     appBarTheme: AppBarTheme(
-        color: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color:AppColors.kcTextPrimary),
-        titleTextStyle: AppStyles.kSubheadingStyle.copyWith(fontWeight: FontWeight.w500)),
+        color: Colors.white,
+        iconTheme: const IconThemeData(color:AppColors.kcPrimaryColor),
+        titleTextStyle: AppStyles.kSubheadingStyle.copyWith(fontWeight: FontWeight.w500,color: AppColors.kcPrimaryColor)),
     scaffoldBackgroundColor: Colors.white,
     primaryColor: AppColors.kcPrimaryColor,
   );
 
   final ThemeData themeDataDark = ThemeData(
     textTheme: GoogleFonts.robotoSlabTextTheme(),
+    useMaterial3: true,
     brightness: Brightness.dark,
     backgroundColor:AppColors.kAltBg,
     scaffoldBackgroundColor: AppColors.kBlack,

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 ///
 class DeviceUtils {
 
+  DeviceUtils._();
   ///
   /// hides the keyboard if its already open
   ///
