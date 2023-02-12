@@ -45,14 +45,12 @@ String dateDifference(DateTime start, DateTime end) {
   return "${twoDigits(difference.inHours)}:$twoDigitMinutes:$twoDigitSeconds";
 }
 
-
 extension DateOnlyCompare on DateTime {
   bool isSameDate(DateTime other) {
-    return year == other.year &&
-        month == other.month &&
-        day == other.day;
+    return year == other.year && month == other.month && day == other.day;
   }
-  String toTime(){
+
+  String toTime() {
     return DateFormat().add_Hm().format(this);
   }
 }
@@ -60,6 +58,15 @@ extension DateOnlyCompare on DateTime {
 extension DateTimeExtension on TimeOfDay {
   DateTime toDate() {
     final now = DateTime.now();
-    return DateTime(now.year,now.month, now.day, hour, minute);
+    return DateTime(now.year, now.month, now.day, hour, minute);
+  }
+}
+
+extension TimestamExtensions on Timestamp {
+  int toAlertId() {
+    //create id for scheduled alerts (it must be 32-bit)
+    final d = toDate();
+    return int.parse(
+        '${d.month}${d.day}${d.hour}${d.minute}');
   }
 }

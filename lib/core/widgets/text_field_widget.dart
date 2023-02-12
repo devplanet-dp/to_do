@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:to_do/core/shared/app_colors.dart';
-import 'package:to_do/core/shared/app_styles.dart';
-
 
 class AppTextField extends StatelessWidget {
   final String? initialValue, prefix, hintText;
@@ -76,7 +73,7 @@ class AppTextField extends StatelessWidget {
     return TextFormField(
       focusNode: focusNode,
       textAlign: TextAlign.start,
-      initialValue: controller == null ? initialValue : null,
+      initialValue: initialValue,
       controller: controller,
       obscureText: isPassword,
       enabled: isEnabled,
@@ -87,9 +84,8 @@ class AppTextField extends StatelessWidget {
       onTap: onTap,
       enableInteractiveSelection: isEnabled,
       maxLength: maxLength,
-      textCapitalization: isCapitalize
-          ? TextCapitalization.sentences
-          : TextCapitalization.none,
+      textCapitalization:
+          isCapitalize ? TextCapitalization.sentences : TextCapitalization.none,
       onEditingComplete: onEditingComplete,
       maxLines: isTextArea && !isPassword
           ? null
@@ -111,8 +107,7 @@ class AppTextField extends StatelessWidget {
         floatingLabelBehavior: FloatingLabelBehavior.auto,
         hintText: hintText,
         labelText: label,
-
-        labelStyle: TextStyle(
+        labelStyle: const TextStyle(
             fontWeight: FontWeight.w400,
             fontSize: 15,
             color: AppColors.kAltBgLight),
@@ -123,8 +118,7 @@ class AppTextField extends StatelessWidget {
         prefixText: prefix,
         prefix: prefixWidget,
         prefixIcon: prefixIcon,
-        prefixIconConstraints:
-            const BoxConstraints(minWidth: 0, minHeight: 0),
+        prefixIconConstraints: const BoxConstraints(minWidth: 0, minHeight: 0),
         suffixIcon: suffixIcon,
         suffix: suffix,
         focusColor: Colors.transparent,
@@ -143,7 +137,6 @@ class AppTextField extends StatelessWidget {
         focusedBorder: const UnderlineInputBorder(
           borderSide: BorderSide(color: AppColors.kcPrimaryColor),
         ),
-
       ),
     );
   }

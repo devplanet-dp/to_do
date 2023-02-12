@@ -52,7 +52,7 @@ class AvatarView extends StatelessWidget {
           userName[0].toUpperCase(),
           style: Theme.of(context)
               .textTheme
-              .headline6
+              .headlineLarge
               ?.copyWith(fontWeight: FontWeight.bold, color: AppColors.kcTextSecondary),
         ),
       );

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'app_colors.dart';
-
 // Box Decorations
 
 class AppStyles {
@@ -15,8 +13,8 @@ class AppStyles {
   static const double inputFieldSmallBottomMargin = 0;
   static const EdgeInsets fieldPadding = EdgeInsets.symmetric(horizontal: 28);
   static const EdgeInsets fieldPaddingAll = EdgeInsets.all(10.0);
- static const EdgeInsets kLargeFieldPadding =
-       EdgeInsets.symmetric(horizontal: 48, vertical: 24);
+  static const EdgeInsets kLargeFieldPadding =
+      EdgeInsets.symmetric(horizontal: 48, vertical: 24);
 
 //Radius
   static const double kRadiusSmall = 8;
@@ -28,42 +26,42 @@ class AppStyles {
   static const BorderRadius kBorderSmall =
       BorderRadius.all(Radius.circular(kRadiusSmall));
   static const BorderRadius kBorderMedium =
-       BorderRadius.all(Radius.circular(kRadiusMedium));
+      BorderRadius.all(Radius.circular(kRadiusMedium));
   static const BorderRadius kBorderLarge =
-      const BorderRadius.all(Radius.circular(kRadiusLarge));
+       BorderRadius.all(Radius.circular(kRadiusLarge));
 
   /// text themes
 // To make it clear which weight we are using, we'll define the weight even for regular
 // fonts
-  static const TextStyle kHeading1Style = TextStyle(
-      fontSize: 34, fontWeight: FontWeight.w400);
+  static const TextStyle kHeading1Style =
+      TextStyle(fontSize: 34, fontWeight: FontWeight.w400);
 
-  static const TextStyle kHeading2Style = TextStyle(
-      fontSize: 28, fontWeight: FontWeight.w600);
+  static const TextStyle kHeading2Style =
+      TextStyle(fontSize: 28, fontWeight: FontWeight.w600);
 
-  static const TextStyle kHeading3Style = TextStyle(
-      fontSize: 22, fontWeight: FontWeight.w600);
+  static const TextStyle kHeading3Style =
+      TextStyle(fontSize: 22, fontWeight: FontWeight.w600);
 
-  static const TextStyle kHeadlineStyle = TextStyle(
-      fontSize: 30, fontWeight: FontWeight.w700);
+  static const TextStyle kHeadlineStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.w700);
 
-  static const TextStyle kBodyStyle = TextStyle(
-      fontSize: 16, fontWeight: FontWeight.w400);
+  static const TextStyle kBodyStyle =
+      TextStyle(fontSize: 16, fontWeight: FontWeight.w400);
 
-  static const TextStyle kBody1Style = TextStyle(
-      fontSize: 15, fontWeight: FontWeight.w400);
+  static const TextStyle kBody1Style =
+      TextStyle(fontSize: 15, fontWeight: FontWeight.w400);
 
-  static const TextStyle kBody2Style = TextStyle(
-      fontSize: 11, fontWeight: FontWeight.w400);
+  static const TextStyle kBody2Style =
+      TextStyle(fontSize: 11, fontWeight: FontWeight.w400);
 
-  static const TextStyle kLabelStyle = TextStyle(
-      fontSize: 10, fontWeight: FontWeight.w400);
+  static const TextStyle kLabelStyle =
+      TextStyle(fontSize: 10, fontWeight: FontWeight.w400);
 
-  static const TextStyle kSubheadingStyle = TextStyle(
-      fontSize: 20, fontWeight: FontWeight.w400);
+  static const TextStyle kSubheadingStyle =
+      TextStyle(fontSize: 20, fontWeight: FontWeight.w400);
 
-  static const TextStyle kCaptionStyle = TextStyle(
-      fontSize: 13, fontWeight: FontWeight.w400);
+  static const TextStyle kCaptionStyle =
+      TextStyle(fontSize: 13, fontWeight: FontWeight.w400);
 
 //shaders
   final Shader goldGradient = const LinearGradient(

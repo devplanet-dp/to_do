@@ -1,7 +1,5 @@
 import 'package:get/get.dart';
-import 'package:to_do/core/utils/app_logger.dart';
 import 'package:to_do/data/controllers/auth_controller.dart';
-import 'package:to_do/locale.dart';
 
 import '../../core/base/base_controller.dart';
 import '../../core/routes/app_routes.dart';

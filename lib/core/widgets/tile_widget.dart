@@ -28,7 +28,7 @@ class TileWidget extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: Get.height*.2,
+        height: Get.height * .12,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
@@ -51,19 +51,30 @@ class TileWidget extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-                top: 20,
                 left: 10,
-                child: AutoSizeText(
-                  header,
-                  maxLines: 1,
-                  style: AppStyles.kHeading3Style.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.kAltWhite,
-                      fontSize: 18),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CircleAvatar(
+                        backgroundColor: primaryColor,
+                        child: Icon(
+                          icon,
+                          size: 18,
+                          color: Colors.white,
+                        ).paddingAll(8)),
+                    AppStyles.vSpaceSmall,
+                    AutoSizeText(
+                      header,
+                      maxLines: 1,
+                      style: AppStyles.kHeading3Style.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.kAltWhite,
+                          fontSize: 18),
+                    )
+                  ],
                 )),
             Positioned(
-              bottom: 10,
-              left: 10,
+              right: 10,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -71,14 +82,14 @@ class TileWidget extends StatelessWidget {
                     subHeader,
                     maxLines: 2,
                     textAlign: TextAlign.start,
-                    style: AppStyles.kBodyStyle.copyWith(
+                    style: AppStyles.kHeading3Style.copyWith(
                         fontWeight: FontWeight.w600, color: Colors.white),
                   ),
                 ],
               ),
             )
           ],
-        ),
+        ).paddingAll(8),
       ),
     );
   }

@@ -6,6 +6,7 @@ import 'package:to_do/core/utils/app_utils.dart';
 import 'package:to_do/core/utils/timeago.dart';
 import 'package:to_do/data/controllers/auth_controller.dart';
 import 'package:to_do/data/controllers/firestore_controller.dart';
+import 'package:to_do/data/controllers/notification_controller.dart';
 import 'package:to_do/data/model/task_model.dart';
 import 'package:uuid/uuid.dart';
 
@@ -14,6 +15,7 @@ import '../../core/base/base_controller.dart';
 class TaskController extends BaseController {
   final _authController = Get.find<AuthenticationController>();
   final _fireController = Get.find<FirestoreController>();
+  final _notificationController = Get.find<NotificationController>();
 
   //form controller
   final formKey = GlobalKey<FormState>();
@@ -83,6 +85,9 @@ class TaskController extends BaseController {
       setBusy(false);
       if (!result.hasError) {
         Get.back();
+        //schedule notification as reminder
+        scheduleNotification(t);
+
         AppUtils.showInfoMessage(message: 'text015'.tr);
       } else {
         AppUtils.showErrorMessage(message: result.errorMessage);
@@ -97,6 +102,11 @@ class TaskController extends BaseController {
         uid: _authController.currentUser?.userId ?? '');
     if (!result.hasError) {
       Get.back();
+
+      //remove scheduled notification if any
+      await _notificationController.cancelScheduledAlert(
+          editTask?.createdAt?.toAlertId()??0);
+
       AppUtils.showInfoMessage(message: 'text016'.tr);
     } else {
       AppUtils.showErrorMessage(message: result.errorMessage);
@@ -104,6 +114,14 @@ class TaskController extends BaseController {
     setBusy(false);
   }
 
+  Future scheduleNotification(TaskModel task) async {
+    //create a scheduled notification with createdAt timestamp as id
+    await _notificationController.createScheduledAlert(
+        vid: task.createdAt?.toAlertId()??0,
+        title: task.title ?? '',
+        description: task.description ?? '',
+        date: task.startDate!.toDate());
+  }
 
   @override
   void dispose() {

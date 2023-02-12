@@ -1,14 +1,11 @@
 import 'package:get/get.dart';
 
-import '../../data/model/user_model.dart';
-
 enum ViewState {
   idle,
   busy,
   retrieved,
   error,
 }
-
 
 class BaseController extends GetxController {
   var viewState = ViewState.idle.obs;

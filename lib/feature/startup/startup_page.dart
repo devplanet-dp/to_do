@@ -9,10 +9,10 @@ class StartUpPage extends StatefulWidget {
   const StartUpPage({Key? key}) : super(key: key);
 
   @override
-  _StartUpViewState createState() => _StartUpViewState();
+  StartUpViewState createState() => StartUpViewState();
 }
 
-class _StartUpViewState extends State<StartUpPage>
+class StartUpViewState extends State<StartUpPage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 

@@ -13,7 +13,6 @@ class AppTheme{
     textTheme: GoogleFonts.poppinsTextTheme(),
     useMaterial3: true,
     brightness: Brightness.light,
-    backgroundColor: Colors.white,
     progressIndicatorTheme: const ProgressIndicatorThemeData(
       color: Colors.white
     ),
@@ -54,7 +53,6 @@ class AppTheme{
     textTheme: GoogleFonts.robotoSlabTextTheme(),
     useMaterial3: true,
     brightness: Brightness.dark,
-    backgroundColor:AppColors.kAltBg,
     scaffoldBackgroundColor: AppColors.kBlack,
     primaryColor: AppColors.kcPrimaryColor,
   );

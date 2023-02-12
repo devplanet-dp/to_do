@@ -12,7 +12,7 @@ class TaskTile extends StatelessWidget {
   const TaskTile({Key? key, required this.task, required this.onMarkCompleted})
       : super(key: key);
   final TaskModel task;
-  final Function(String) onMarkCompleted;
+  final Function(TaskModel) onMarkCompleted;
 
   @override
   Widget build(BuildContext context) {
@@ -56,8 +56,8 @@ class TaskTile extends StatelessWidget {
             alignment: Alignment.topRight,
             child: !isDone
                 ? ActionChip(
-                    label: Text('Mark completed'),
-                    onPressed: ()=>onMarkCompleted(task.id ?? ''),
+                    label: Text('text022'.tr),
+                    onPressed: ()=>onMarkCompleted(task),
                   )
                 : const Icon(
                      Icons.check_circle_outlined,
@@ -66,7 +66,7 @@ class TaskTile extends StatelessWidget {
           )
         ],
       ).paddingAll(16),
-    ).paddingSymmetric(horizontal: 16);
+    );
   }
 
   Widget _buildField({required IconData icon, required String value}) => Row(

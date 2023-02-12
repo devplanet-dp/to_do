@@ -20,7 +20,7 @@ class ToDoProgress extends GetView<HomeController> {
       return controller.allTasks.isEmpty
           ? const SizedBox()
           : TweenAnimationBuilder<double>(
-              duration: const Duration(milliseconds: 250),
+              duration: const Duration(milliseconds: 700),
               curve: Curves.easeInOut,
               tween: Tween<double>(
                 begin: 0,

@@ -34,6 +34,8 @@ dependencies:
   date_picker_timeline:
   uuid:
   intl:
+  #notification
+  awesome_notifications:
 
   #statemanagement
   get:
