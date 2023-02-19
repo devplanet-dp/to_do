@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:styled_widget/styled_widget.dart';
+import 'package:to_do/core/shared/app_colors.dart';
 
 import '../shared/app_styles.dart';
 
@@ -16,9 +17,9 @@ class ProfileWidget extends StatelessWidget {
     return Container(
       height: 32,
       width: 32,
-      decoration: BoxDecoration(
-          color: Colors.red.withOpacity(.5),
-          borderRadius: const BorderRadius.all(Radius.circular(8))),
+      decoration: const BoxDecoration(
+          color: AppColors.kcAccent,
+          borderRadius: BorderRadius.all(Radius.circular(8))),
       child: _buildLetter(context).center(),
     ).paddingAll(8);
   }

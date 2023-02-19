@@ -9,7 +9,7 @@ class StartUpController extends BaseController {
 
   @override
   void onInit() {
-    handleStartUpLogic();
+    // handleStartUpLogic();
     super.onInit();
   }
 

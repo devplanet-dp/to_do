@@ -28,13 +28,14 @@ class AppLocale extends Translations {
           'text018':'Mark completed',
           'text019':'Today',
           'text020':'Upcoming',
-          'text021':'Done',
+          'text021':'Completed task',
           'text022':'Mark completed',
           'text023':'Are you sure?',
           'text024':'You need to sign out',
           'text025':'No any tasks found!',
           'text026':'Make something awesome',
           'text027':'Add product categories',
+          'text028':'Due date',
 
 
         }

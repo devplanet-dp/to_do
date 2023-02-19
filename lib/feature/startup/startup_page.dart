@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:to_do/core/shared/app_styles.dart';
 
@@ -22,6 +23,12 @@ class StartUpViewState extends State<StartUpPage>
         AnimationController(vsync: this, duration: const Duration(seconds: 3));
 
     _controller.forward();
+    _controller.addListener(() {
+      if(_controller.isCompleted){
+        //run startup logic once animation completed
+        Get.find<StartUpController>().handleStartUpLogic();
+      }
+    });
 
 
     super.initState();
@@ -43,7 +50,22 @@ class StartUpViewState extends State<StartUpPage>
                     CurvedAnimation(
                         parent: _controller,
                         curve: const Interval(.3, 1.0, curve: Curves.easeOut))),
-                child: const Text('ToDo',style: AppStyles.kHeading3Style,).center(),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      Icons.note_alt_outlined,
+                      size: 32,
+                    ).paddingSymmetric(horizontal: 16),
+                    Text(
+                      'ToDo',
+                      style:
+                      AppStyles.kHeading2Style.copyWith(fontWeight: FontWeight.w900),
+                    ).center(),
+                  ],
+                ).center(),
               ),
             ));
   }

@@ -120,7 +120,7 @@ class TaskController extends BaseController {
         vid: task.createdAt?.toAlertId()??0,
         title: task.title ?? '',
         description: task.description ?? '',
-        date: task.startDate!.toDate());
+        date: task.startDate!.toDate(),startTime: task.startTime!.toDate());
   }
 
   @override

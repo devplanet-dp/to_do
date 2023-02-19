@@ -25,7 +25,7 @@ class CustomSliverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       pinned: false,
-      expandedHeight: Get.height * 0.2,
+      expandedHeight: Get.height * 0.25,
       backgroundColor: AppColors.kcPrimaryColor,
       iconTheme: const IconThemeData(color: Colors.white),
       actions:  [

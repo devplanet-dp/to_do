@@ -49,12 +49,18 @@ class TaskPage extends GetView<TaskController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AppStyles.vSpaceMedium,
+                  Text('text028'.tr,style: const TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 15,
+                      color: AppColors.kAltBgLight),),
+                  AppStyles.vSpaceSmall,
                   DatePicker(
                     DateTime.now(),
                     controller: controller.datePickerController,
                     initialSelectedDate: controller.selectedDate.value,
                     selectedTextColor: Colors.white,
                     monthTextStyle: AppStyles.kLabelStyle,
+                    height: 100,
                     dayTextStyle: AppStyles.kLabelStyle,
                     dateTextStyle: AppStyles.kBodyStyle
                         .copyWith(fontWeight: FontWeight.w700),

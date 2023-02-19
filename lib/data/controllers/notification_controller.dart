@@ -1,6 +1,7 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:to_do/core/utils/app_logger.dart';
 
 const channelKey = 'toDoChannelKey';
 const channelKeyGroupName = 'toDoChannelGroup';
@@ -12,13 +13,11 @@ class NotificationController extends GetxController {
     super.onInit();
   }
 
-  Future requestLocalNotificationPermission(BuildContext context) async {
-    await requestUserPermissions(context,
-        channelKey: channelKey,
-        permissionList: [
-          NotificationPermission.Alert,
-          NotificationPermission.Sound
-        ]);
+  Future requestLocalNotificationPermission() async {
+    await requestUserPermissions(channelKey: channelKey, permissionList: [
+      NotificationPermission.Alert,
+      NotificationPermission.Sound
+    ]);
   }
 
   initLocalNotification() {
@@ -36,14 +35,30 @@ class NotificationController extends GetxController {
               channelDescription: 'Notification channel for ToDo app'),
         ],
         debug: true);
+    requestLocalNotificationPermission();
   }
 
   Future createScheduledAlert(
       {required int vid,
       required String title,
       required String description,
-      required DateTime date}) async {
+      required DateTime date,
+      required DateTime startTime}) async {
     ///create scheduled alert for tasks. Scheduled is added to task's start date with time
+    ///
+    String localTimeZone =
+        await AwesomeNotifications().getLocalTimeZoneIdentifier();
+    final dueDateTime = DateTime(
+        date.year,
+        date.month,
+        date.day,
+        startTime.hour,
+        startTime.minute,
+        startTime.second,
+        startTime.millisecond,
+        startTime.microsecond);
+    final secondInterval = dueDateTime.difference(DateTime.now()).inSeconds;
+    AppLogger().warning(secondInterval);
     await AwesomeNotifications().createNotification(
         content: NotificationContent(
             id: vid,
@@ -54,7 +69,10 @@ class NotificationController extends GetxController {
             roundedLargeIcon: true,
             category: NotificationCategory.Alarm,
             actionType: ActionType.KeepOnTop),
-        schedule: NotificationCalendar.fromDate(date: date));
+        schedule: NotificationInterval(
+            interval: secondInterval,
+            timeZone: localTimeZone,
+            preciseAlarm: true));
   }
 
   Future cancelScheduledAlert(int vid) async {
@@ -62,7 +80,6 @@ class NotificationController extends GetxController {
   }
 
   static Future<List<NotificationPermission>> requestUserPermissions(
-      BuildContext context,
       {
       // if you only intends to request the permissions until app level, set the channelKey value to null
       required String? channelKey,
@@ -127,7 +144,7 @@ class NotificationController extends GetxController {
         actions: [
           TextButton(
               onPressed: () {
-                Navigator.pop(context);
+                Get.back();
               },
               child: const Text(
                 'Deny',

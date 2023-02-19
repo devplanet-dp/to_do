@@ -91,6 +91,7 @@ class HomeController extends BaseController {
 
   @override
   void onInit() {
+
     listenToTask();
     super.onInit();
   }
